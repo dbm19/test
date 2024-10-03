@@ -8,6 +8,12 @@ size = Vector2(119.5, 125)
 [node name="BuildingVisual" type="Area2D"]
 position = Vector2(415, 158)
 
+[node name="PlayerRange" type="Polygon2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(0.631961, 0.631961)
+color = Color(0, 1, 1, 0.458824)
+polygon = PackedVector2Array(231, -117, 264, -33, 288, 52, 243, 129, 152, 186, 14, 226, -147, 207, -230, 97, -234, -20, -230, -114, -163, -156, -52, -178, 147, -187)
+
 [node name="BuildingVisualSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_47hct")
 

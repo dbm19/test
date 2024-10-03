@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("create"):
 		mouse_position = get_viewport().get_mouse_position()
 		player_instance = player_scene.instantiate()
+		player_instance.remove_child(player_instance.get_children()[0])
 		player_instance.position = mouse_position
 		add_child(player_instance)
 		
