@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb22vbour2ppi"]
+
+[ext_resource type="Texture2D" uid="uid://c4ydj2imcmiky" path="res://building_sprite_visual.png" id="1_47hct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kavys"]
+size = Vector2(119.5, 125)
+
+[node name="BuildingVisual" type="Area2D"]
+position = Vector2(415, 158)
+
+[node name="BuildingVisualSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_47hct")
+
+[node name="BuidlingVisualCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, 0.5)
+shape = SubResource("RectangleShape2D_kavys")

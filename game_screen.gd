@@ -1,18 +1,26 @@
 extends Node2D
 
-var spawn_position
+var mouse_position
+
 var player_scene = preload("res://player.tscn")
 var player_instance
 
+var building_visual_scene = preload("res://building_visual.tscn")
+var building_visual_instance
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	building_visual_instance = building_visual_scene.instantiate()
+	add_child(building_visual_instance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	mouse_position = get_viewport().get_mouse_position()
+	building_visual_instance.position = mouse_position
+
 	if Input.is_action_just_pressed("create"):
-		spawn_position = get_viewport().get_mouse_position()
+		mouse_position = get_viewport().get_mouse_position()
 		player_instance = player_scene.instantiate()
-		player_instance.position = spawn_position
+		player_instance.position = mouse_position
 		add_child(player_instance)
 		
