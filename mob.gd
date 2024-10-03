@@ -1,14 +1,14 @@
 extends Area2D
 
-var player
+var building
 var direction
-var speed = 200
+var speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node("../Player")
+	building = get_node("../Building")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	direction = (player.global_position - global_position).normalized()
+	direction = (building.global_position - global_position).normalized()
 	position += direction * speed * delta
