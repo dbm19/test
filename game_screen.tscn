@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://drjh5mm3ejdk0"]
+
+[ext_resource type="Texture2D" uid="uid://cca0gejqysbt1" path="res://mob_sprite.png" id="1_i7kup"]
+[ext_resource type="Texture2D" uid="uid://2vemj5kalgan" path="res://icon.svg" id="1_k50kh"]
+[ext_resource type="Script" path="res://player.gd" id="2_winur"]
+[ext_resource type="Script" path="res://mob.gd" id="3_2lyf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnr4i"]
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byt70"]
+size = Vector2(126.75, 130)
+
+[node name="GameScreen" type="Node2D"]
+
+[node name="GameScreenBackground" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 650.0
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(156, 74)
+script = ExtResource("2_winur")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_k50kh")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_tnr4i")
+
+[node name="Mob" type="Area2D" parent="."]
+position = Vector2(767, 242)
+script = ExtResource("3_2lyf1")
+
+[node name="MobSprite" type="Sprite2D" parent="Mob"]
+texture = ExtResource("1_i7kup")
+
+[node name="MobCollisionShape" type="CollisionShape2D" parent="Mob"]
+position = Vector2(0.625, 1)
+shape = SubResource("RectangleShape2D_byt70")
