@@ -18,7 +18,7 @@ script = ExtResource("1_d8kkg")
 offset_right = 1153.0
 offset_bottom = 650.0
 
-[node name="Mob" type="Area2D" parent="."]
+[node name="Mob" type="Area2D" parent="." groups=["mob"]]
 position = Vector2(1082, 354)
 script = ExtResource("3_2lyf1")
 
