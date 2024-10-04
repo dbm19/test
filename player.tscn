@@ -11,6 +11,7 @@ position = Vector2(591, 330)
 script = ExtResource("1_r4gb0")
 
 [node name="PlayerRange" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(1.99998, 2)
 scale = Vector2(0.631961, 0.631961)
 color = Color(0, 1, 1, 1)
@@ -22,3 +23,12 @@ texture = ExtResource("2_w5hgu")
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_g10l2")
+
+[node name="PlayerTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="VanishTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="PlayerTimer" to="." method="_on_player_timer_timeout"]
+[connection signal="timeout" from="VanishTimer" to="." method="_on_vanish_timer_timeout"]
