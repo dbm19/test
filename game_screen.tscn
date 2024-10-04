@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://drjh5mm3ejdk0"]
+[gd_scene load_steps=5 format=3 uid="uid://drjh5mm3ejdk0"]
 
 [ext_resource type="Script" path="res://game_screen.gd" id="1_d8kkg"]
-[ext_resource type="Texture2D" uid="uid://cca0gejqysbt1" path="res://mob_sprite.png" id="1_i7kup"]
-[ext_resource type="Script" path="res://mob.gd" id="3_2lyf1"]
 [ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://building_sprite.png" id="5_6a678"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_byt70"]
-size = Vector2(126.75, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya27i"]
 size = Vector2(126.5, 126.5)
+
+[sub_resource type="Curve2D" id="Curve2D_emjlp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -47, -68, 0, 0, 0, 0, 1234, -66, 0, 0, 0, 0, 1219, 709, 0, 0, 0, 0, -48, 709, 0, 0, 0, 0, -48, -69)
+}
+point_count = 5
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_d8kkg")
@@ -18,19 +19,8 @@ script = ExtResource("1_d8kkg")
 offset_right = 1153.0
 offset_bottom = 650.0
 
-[node name="Mob" type="Area2D" parent="." groups=["mob"]]
-position = Vector2(1082, 354)
-script = ExtResource("3_2lyf1")
-
-[node name="MobSprite" type="Sprite2D" parent="Mob"]
-texture = ExtResource("1_i7kup")
-
-[node name="MobCollisionShape" type="CollisionShape2D" parent="Mob"]
-position = Vector2(0.625, 1)
-shape = SubResource("RectangleShape2D_byt70")
-
 [node name="Building" type="Area2D" parent="."]
-position = Vector2(74, 348)
+position = Vector2(568, 342)
 
 [node name="BuildingSprite" type="Sprite2D" parent="Building"]
 texture = ExtResource("5_6a678")
@@ -38,3 +28,15 @@ texture = ExtResource("5_6a678")
 [node name="BuildingCollisionShape" type="CollisionShape2D" parent="Building"]
 position = Vector2(-0.25, 0.25)
 shape = SubResource("RectangleShape2D_ya27i")
+
+[node name="MobSpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_emjlp")
+
+[node name="MobSpawnPathFollow" type="PathFollow2D" parent="MobSpawnPath"]
+position = Vector2(-47, -68)
+rotation = 0.00156128
+
+[node name="MobSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

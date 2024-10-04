@@ -15,7 +15,6 @@ func _ready():
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_player_timer_timeout() -> void:
 	player_range.visible = true
 	player_sprite.visible = false
