@@ -45,4 +45,3 @@ func _on_mob_spawn_timer_timeout() -> void:
 	
 	mob_instance.position = mob_spawn_path_follow.position
 	add_child(mob_instance)
-	

@@ -1,6 +1,8 @@
 extends Node
 
 var building
+var mob_spawn
+var mob_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
