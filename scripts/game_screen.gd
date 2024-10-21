@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 		mouse_position = get_viewport().get_mouse_position()
 		player_instance = player_scene.instantiate()
 		player_instance.position = mouse_position
-		add_child(player_instance)
+		if !building_visual_instance.is_interfered:
+			add_child(player_instance)
 
 func _on_mob_spawn_timer_timeout() -> void:
 	mob_instance = mob_scene.instantiate()
