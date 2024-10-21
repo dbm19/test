@@ -12,7 +12,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	direction = (Global.building.global_position - global_position).normalized()
 	position += direction * speed * delta
-	Global.mob_position = position
 	
 	if hit_points == 0:
 		queue_free()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd6l7ejfgiccl"]
+[gd_scene load_steps=6 format=3 uid="uid://cd6l7ejfgiccl"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_r4gb0"]
 [ext_resource type="Texture2D" uid="uid://2vemj5kalgan" path="res://icon.svg" id="2_w5hgu"]
+[ext_resource type="PackedScene" uid="uid://n0n7b2fk4bis" path="res://bullet.tscn" id="3_eipik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i6s70"]
-radius = 283.263
+radius = 495.445
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g10l2"]
 size = Vector2(126, 126)
@@ -15,8 +16,8 @@ script = ExtResource("1_r4gb0")
 
 [node name="PlayerRange" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(-40, -31)
-scale = Vector2(0.631961, 0.631961)
+position = Vector2(-73.8331, -50.6533)
+scale = Vector2(1.10758, 1.10758)
 color = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(69.6245, -229.444, 128.172, -223.115, 202.544, -199.379, 262.674, -158.238, 321.222, -80.7011, 352.87, 15.8238, 348.123, 113.931, 303.816, 205.709, 243.686, 278.498, 170.897, 314.893, 91.7778, 332.299, 1.5824, 327.552, -82.2835, 294.322, -129.755, 257.927, -178.808, 199.379, -208.874, 125.008, -219.95, 60.1302, -204.126, -20.5709, -172.479, -88.613, -137.667, -148.743, -79.1188, -185.138, -12.659, -221.533)
 
@@ -35,7 +36,8 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_g10l2")
 
 [node name="ShootTimer" type="Timer" parent="."]
-autostart = true
+
+[node name="Bullet" parent="." instance=ExtResource("3_eipik")]
 
 [connection signal="area_entered" from="PlayerRangeArea" to="." method="_on_player_range_area_area_entered"]
 [connection signal="area_exited" from="PlayerRangeArea" to="." method="_on_player_range_area_area_exited"]

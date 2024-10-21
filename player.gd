@@ -9,6 +9,7 @@ var bullet_scene = preload("res://bullet.tscn")
 var bullet_instance
 
 var enemy_dict = {}
+var enemies_in_range = false
 
 func _ready():
 	bullet_instance = bullet_scene.instantiate()
@@ -27,6 +28,9 @@ func _on_shoot_timer_timeout() -> void:
 func _on_player_range_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("mob"):
 		enemy_dict[area] = area.position
+		#Global.mob_position = area.position
+		enemies_in_range = true
+		shoot_timer.start()
 
 func _on_player_range_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("mob"):
