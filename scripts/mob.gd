@@ -2,7 +2,7 @@ extends Area2D
 
 var direction
 var speed = 100
-var hit_points = 3
+var hit_points = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
+	print("what")
 	if area.is_in_group("bullet"):
 		hit_points -= 1
 		area.queue_free()
