@@ -8,7 +8,7 @@ var player_range_collision
 var bullet_scene = preload("res://bullet.tscn")
 var bullet_instance
 
-var enemy_array = []
+var enemy_dict = {}
 
 func _ready():
 	bullet_instance = bullet_scene.instantiate()
@@ -18,16 +18,16 @@ func _ready():
 	player_range_collision = get_node("PlayerRange/PlayerRangeArea/PlayerRangeCollisionShape")
 
 func _process(delta: float) -> void:
-	pass
-	#if enemy_array.size() > 1:
-	#	pass
+	print(enemy_dict)
 
 func _on_shoot_timer_timeout() -> void:
-	print("shoot")
 	bullet_instance = bullet_scene.instantiate()
 	add_child(bullet_instance)
 
 func _on_player_range_area_area_entered(area: Area2D) -> void:
-	if area.get_groups().size() > 0:
-		if area.is_in_group("mob"):
-			enemy_array.append(area)
+	if area.is_in_group("mob"):
+		enemy_dict[area] = area.position
+
+func _on_player_range_area_area_exited(area: Area2D) -> void:
+	if area.is_in_group("mob"):
+		enemy_dict.erase(area)
