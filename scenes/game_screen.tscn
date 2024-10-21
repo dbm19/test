@@ -8,7 +8,7 @@ size = Vector2(126.5, 126.5)
 
 [sub_resource type="Curve2D" id="Curve2D_emjlp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -47, -68, 0, 0, 0, 0, 1234, -66, 0, 0, 0, 0, 1219, 709, 0, 0, 0, 0, -48, 709, 0, 0, 0, 0, -48, -69)
+"points": PackedVector2Array(0, 0, 0, 0, 4.62074, 0.724757, 0, 0, 0, 0, 1277.3, 7.24762, 0, 0, 0, 0, 1275.98, 779.12, 0, 0, 0, 0, 3.30053, 785.643, 0, 0, 0, 0, 1.32022, 0.724757)
 }
 point_count = 5
 
@@ -16,11 +16,12 @@ point_count = 5
 script = ExtResource("1_6gye6")
 
 [node name="GameScreenBackground" type="TextureRect" parent="."]
-offset_right = 1153.0
-offset_bottom = 650.0
+offset_top = -7.0
+offset_right = 1941.0
+offset_bottom = 1087.0
 
 [node name="Building" type="Area2D" parent="."]
-position = Vector2(568, 342)
+position = Vector2(951, 559)
 
 [node name="BuildingSprite" type="Sprite2D" parent="Building"]
 texture = ExtResource("2_1y61m")
@@ -30,11 +31,13 @@ position = Vector2(-0.25, 0.25)
 shape = SubResource("RectangleShape2D_ya27i")
 
 [node name="MobSpawnPath" type="Path2D" parent="."]
+position = Vector2(-2.00002, 2.00001)
+scale = Vector2(1.51491, 1.37976)
 curve = SubResource("Curve2D_emjlp")
 
 [node name="MobSpawnPathFollow" type="PathFollow2D" parent="MobSpawnPath"]
-position = Vector2(-47, -68)
-rotation = 0.00156128
+position = Vector2(4.62074, 0.724757)
+rotation = 0.00512525
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 autostart = true

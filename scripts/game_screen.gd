@@ -44,4 +44,5 @@ func _on_mob_spawn_timer_timeout() -> void:
 	mob_spawn_path_follow.progress_ratio = random_progress
 	
 	mob_instance.position = mob_spawn_path_follow.position
+	print(mob_instance.position)
 	add_child(mob_instance)

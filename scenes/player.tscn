@@ -35,7 +35,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_g10l2")
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 
 [connection signal="area_entered" from="PlayerRangeArea" to="." method="_on_player_range_area_area_entered"]
 [connection signal="area_exited" from="PlayerRangeArea" to="." method="_on_player_range_area_area_exited"]
