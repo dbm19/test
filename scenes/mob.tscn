@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cca0gejqysbt1" path="res://art/mob_sprite.png" id="2_au0vk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8ctw"]
-size = Vector2(126.75, 130)
+size = Vector2(81.75, 84)
 
 [node name="Mob" type="Area2D" groups=["mob"]]
-position = Vector2(1170, -72)
+position = Vector2(195, 149)
 script = ExtResource("1_qfm4o")
 
 [node name="MobSprite2" type="Sprite2D" parent="."]
+position = Vector2(-22, -22)
+scale = Vector2(0.65625, 0.65625)
 texture = ExtResource("2_au0vk")
 
 [node name="MobCollisionShape2" type="CollisionShape2D" parent="."]
-position = Vector2(0.625, 1)
+position = Vector2(-21.875, -22)
 shape = SubResource("RectangleShape2D_v8ctw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
