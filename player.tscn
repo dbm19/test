@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd6l7ejfgiccl"]
+[gd_scene load_steps=5 format=3 uid="uid://cd6l7ejfgiccl"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_r4gb0"]
 [ext_resource type="Texture2D" uid="uid://2vemj5kalgan" path="res://icon.svg" id="2_w5hgu"]
-[ext_resource type="PackedScene" uid="uid://n0n7b2fk4bis" path="res://bullet.tscn" id="3_eipik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i6s70"]
 radius = 495.445
@@ -36,8 +35,6 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_g10l2")
 
 [node name="ShootTimer" type="Timer" parent="."]
-
-[node name="Bullet" parent="." instance=ExtResource("3_eipik")]
 
 [connection signal="area_entered" from="PlayerRangeArea" to="." method="_on_player_range_area_area_entered"]
 [connection signal="area_exited" from="PlayerRangeArea" to="." method="_on_player_range_area_area_exited"]
