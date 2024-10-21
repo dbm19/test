@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drjh5mm3ejdk0"]
 
-[ext_resource type="Script" path="res://game_screen.gd" id="1_d8kkg"]
-[ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://building_sprite.png" id="5_6a678"]
+[ext_resource type="Script" path="res://game_screen.gd" id="1_6gye6"]
+[ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://building_sprite.png" id="2_1y61m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya27i"]
 size = Vector2(126.5, 126.5)
@@ -13,7 +13,7 @@ _data = {
 point_count = 5
 
 [node name="GameScreen" type="Node2D"]
-script = ExtResource("1_d8kkg")
+script = ExtResource("1_6gye6")
 
 [node name="GameScreenBackground" type="TextureRect" parent="."]
 offset_right = 1153.0
@@ -23,7 +23,7 @@ offset_bottom = 650.0
 position = Vector2(568, 342)
 
 [node name="BuildingSprite" type="Sprite2D" parent="Building"]
-texture = ExtResource("5_6a678")
+texture = ExtResource("2_1y61m")
 
 [node name="BuildingCollisionShape" type="CollisionShape2D" parent="Building"]
 position = Vector2(-0.25, 0.25)

@@ -2,13 +2,13 @@ extends Node2D
 
 var mouse_position
 
-var player_scene = preload("res://player.tscn")
+var player_scene = preload("res://scenes/player.tscn")
 var player_instance
 
-var building_visual_scene = preload("res://building_visual.tscn")
+var building_visual_scene = preload("res://scenes/building_visual.tscn")
 var building_visual_instance
 
-var mob_scene = preload("res://mob.tscn")
+var mob_scene = preload("res://scenes/mob.tscn")
 var mob_instance
 var mob_spawn_path_follow
 

@@ -5,7 +5,7 @@ var player_sprite
 var shoot_timer
 var player_range_collision
 
-var bullet_scene = preload("res://bullet.tscn")
+var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet_instance
 
 var enemy_dict = {}
@@ -19,7 +19,6 @@ func _ready():
 	player_range_collision = get_node("PlayerRange/PlayerRangeArea/PlayerRangeCollisionShape")
 
 func _process(delta: float) -> void:
-	print(enemy_dict)
 	if enemy_dict.is_empty():
 		shoot_timer.stop()
 
