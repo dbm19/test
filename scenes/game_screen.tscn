@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drjh5mm3ejdk0"]
 
-[ext_resource type="Script" path="res://game_screen.gd" id="1_6gye6"]
-[ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://building_sprite.png" id="2_1y61m"]
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_6gye6"]
+[ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://art/building_sprite.png" id="2_1y61m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya27i"]
 size = Vector2(126.5, 126.5)
@@ -37,7 +37,6 @@ position = Vector2(-47, -68)
 rotation = 0.00156128
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-one_shot = true
 autostart = true
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

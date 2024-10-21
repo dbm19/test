@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cb22vbour2ppi"]
 
-[ext_resource type="Texture2D" uid="uid://c4ydj2imcmiky" path="res://building_sprite_visual.png" id="1_47hct"]
+[ext_resource type="Texture2D" uid="uid://c4ydj2imcmiky" path="res://art/building_sprite_visual.png" id="1_47hct"]
 
 [node name="BuildingVisual" type="Area2D"]
 position = Vector2(415, 158)
