@@ -37,6 +37,7 @@ position = Vector2(-47, -68)
 rotation = 0.00156128
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
