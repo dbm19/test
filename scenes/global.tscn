@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://byfyvrp6pc60f"]
+[gd_scene load_steps=5 format=3 uid="uid://byfyvrp6pc60f"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_6k04n"]
+[ext_resource type="AudioStream" uid="uid://jiw3p1q2hour" path="res://sounds/bullet_firing.wav" id="2_wena6"]
+[ext_resource type="AudioStream" uid="uid://cf3lj45ihvvbm" path="res://sounds/mob_hit.wav" id="3_d8s8b"]
+[ext_resource type="AudioStream" uid="uid://cxgn8ufxnkrnj" path="res://sounds/mob_death.wav" id="4_k053v"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_6k04n")
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wena6")
+
+[node name="MobHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d8s8b")
+
+[node name="MobDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k053v")

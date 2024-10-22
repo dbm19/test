@@ -7,6 +7,8 @@ var speed = 400
 func _ready() -> void:
 	add_to_group("bullet")
 	
+	Global.bullet_sound.play()
+	
 	if Global.mob_position:
 		direction = (Global.mob_position - global_position).normalized()
 	

@@ -17,10 +17,12 @@ func _process(delta: float) -> void:
 	
 	if hit_points == 0:
 		queue_free()
+		Global.mob_death.play()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		hit_points -= 1
+		Global.mob_hit.play()
 		area.queue_free()
 		mob_sprite.texture = load("res://art/mob_sprite_damaged.png")
 		await get_tree().create_timer(0.18).timeout
