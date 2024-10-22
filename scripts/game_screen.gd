@@ -17,6 +17,8 @@ var random_progress
 
 var building
 
+var camera
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	building_visual_instance = building_visual_scene.instantiate()
@@ -27,6 +29,8 @@ func _ready() -> void:
 	building.add_to_group("building")
 	mob_spawn_path_follow = get_node("MobSpawnPath/MobSpawnPathFollow")
 
+	camera = get_node("Camera")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mouse_position = get_viewport().get_mouse_position()
@@ -38,6 +42,11 @@ func _process(delta: float) -> void:
 		tower_instance.position = mouse_position
 		if !building_visual_instance.is_interfered:
 			add_child(tower_instance)
+			
+	if Input.is_action_just_pressed("camera_pan"):
+		var tween = get_tree().create_tween()
+		#tween.tween_property(building, "modulate", Color.RED, 1)
+		tween.tween_property(camera, "offset", Vector2(-1000, 0), 0.1)
 
 func _on_mob_spawn_timer_timeout() -> void:
 	mob_instance = mob_scene.instantiate()

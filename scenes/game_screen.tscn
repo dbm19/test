@@ -49,4 +49,7 @@ autostart = true
 [node name="Player" parent="." instance=ExtResource("3_j0p6g")]
 position = Vector2(336, 328)
 
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(572, 331)
+
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
