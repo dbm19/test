@@ -2,10 +2,10 @@ extends Node2D
 
 var mouse_position
 
-var player_scene = preload("res://scenes/player.tscn")
-var player_instance
+var tower_scene = preload("res://scenes/tower.tscn")
+var tower_instance
 
-var building_visual_scene = preload("res://scenes/building_visual.tscn")
+var building_visual_scene = preload("res://scenes/tower_hologram.tscn")
 var building_visual_instance
 
 var mob_scene = preload("res://scenes/mob.tscn")
@@ -24,7 +24,7 @@ func _ready() -> void:
 	building = get_node("Building")
 	Global.building = building
 	building.add_to_group("allied_structures")
-
+	building.add_to_group("building")
 	mob_spawn_path_follow = get_node("MobSpawnPath/MobSpawnPathFollow")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,10 +34,10 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("create"):
 		mouse_position = get_viewport().get_mouse_position()
-		player_instance = player_scene.instantiate()
-		player_instance.position = mouse_position
+		tower_instance = tower_scene.instantiate()
+		tower_instance.position = mouse_position
 		if !building_visual_instance.is_interfered:
-			add_child(player_instance)
+			add_child(tower_instance)
 
 func _on_mob_spawn_timer_timeout() -> void:
 	mob_instance = mob_scene.instantiate()

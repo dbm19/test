@@ -25,3 +25,5 @@ func _on_area_entered(area: Area2D) -> void:
 		mob_sprite.texture = load("res://art/mob_sprite_damaged.png")
 		await get_tree().create_timer(0.18).timeout
 		mob_sprite.texture = load("res://art/mob_sprite.png")
+	elif area.is_in_group("building"):
+		self.queue_free()

@@ -1,46 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd6l7ejfgiccl"]
+[gd_scene load_steps=4 format=3 uid="uid://fjje58a10eia"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_vmlsg"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_rcao2"]
 [ext_resource type="Texture2D" uid="uid://2vemj5kalgan" path="res://art/icon.svg" id="2_qxxj4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g10l2"]
-size = Vector2(84.5, 81.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adyoa"]
+size = Vector2(128, 128)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i6s70"]
-radius = 243.691
-
-[node name="Player" type="Area2D"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_vmlsg")
+[node name="Player" type="Node2D"]
+script = ExtResource("1_rcao2")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
 scale = Vector2(0.656, 0.656)
 texture = ExtResource("2_qxxj4")
 
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_g10l2")
+[node name="PlayerArea2D" type="Area2D" parent="."]
 
-[node name="PlayerRange" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(558, 304)
-scale = Vector2(0.540737, 0.540737)
-color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(69.6245, -229.444, 128.172, -223.115, 202.544, -199.379, 262.674, -158.238, 321.222, -80.7011, 352.87, 15.8238, 348.123, 113.931, 303.816, 205.709, 243.686, 278.498, 170.897, 314.893, 91.7778, 332.299, 1.5824, 327.552, -82.2835, 294.322, -129.755, 257.927, -178.808, 199.379, -208.874, 125.008, -219.95, 60.1302, -204.126, -20.5709, -172.479, -88.613, -137.667, -148.743, -79.1188, -185.138, -12.659, -221.533)
-
-[node name="PlayerRangeArea" type="Area2D" parent="."]
-position = Vector2(-1, 1)
-
-[node name="PlayerRangeCollisionShape" type="CollisionShape2D" parent="PlayerRangeArea"]
-position = Vector2(2, 2)
-scale = Vector2(0.631961, 0.631961)
-shape = SubResource("CircleShape2D_i6s70")
-
-[node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[connection signal="area_entered" from="PlayerRangeArea" to="." method="_on_player_range_area_area_entered"]
-[connection signal="area_exited" from="PlayerRangeArea" to="." method="_on_player_range_area_area_exited"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerArea2D"]
+scale = Vector2(0.656, 0.656)
+shape = SubResource("RectangleShape2D_adyoa")

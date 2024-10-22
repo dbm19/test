@@ -1,10 +1,10 @@
 extends Area2D
 
-var player_range
-var player_sprite
+var tower_range
+var tower_sprite
 var shoot_timer
-var player_collision
-var player_range_collision
+var tower_collision
+var tower_range_collision
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet_instance
@@ -13,11 +13,11 @@ var enemy_array = []
 var enemy_target
 
 func _ready():
-	player_range = get_node("PlayerRange")
-	player_sprite = get_node("PlayerSprite")
+	tower_range = get_node("TowerRange")
+	tower_sprite = get_node("TowerSprite")
 	shoot_timer = get_node("ShootTimer")
-	player_collision = get_node("PlayerCollisionShape")
-	player_range_collision = get_node("PlayerRange/PlayerRangeArea/PlayerRangeCollisionShape")
+	tower_collision = get_node("TowerCollisionShape")
+	tower_range_collision = get_node("TowerRange/TowerRangeArea/TowerRangeCollisionShape")
 	self.add_to_group("allied_structures")
 
 func _process(delta: float) -> void:
@@ -30,13 +30,12 @@ func _on_shoot_timer_timeout() -> void:
 	bullet_instance = bullet_scene.instantiate()
 	add_child(bullet_instance)
 
-
-func _on_player_range_area_area_entered(area: Area2D) -> void:
+func _on_tower_range_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("mob"):
 		enemy_array.append(area)
 		shoot_timer.start()
 
-func _on_player_range_area_area_exited(area: Area2D) -> void:
+func _on_tower_range_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("mob"):
 		enemy_array.erase(area)
 

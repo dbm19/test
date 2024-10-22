@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://drjh5mm3ejdk0"]
+[gd_scene load_steps=6 format=3 uid="uid://drjh5mm3ejdk0"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_6gye6"]
 [ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://art/building_sprite.png" id="2_1y61m"]
+[ext_resource type="PackedScene" uid="uid://fjje58a10eia" path="res://scenes/player.tscn" id="3_j0p6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya27i"]
 size = Vector2(126.5, 126.5)
@@ -23,8 +24,8 @@ offset_bottom = 1087.0
 
 [node name="Building" type="Area2D" parent="."]
 position = Vector2(572, 329)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="BuildingSprite" type="Sprite2D" parent="Building"]
 texture = ExtResource("2_1y61m")
@@ -43,7 +44,9 @@ position = Vector2(4.62074, 0.724757)
 rotation = 0.00512525
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
+
+[node name="Player" parent="." instance=ExtResource("3_j0p6g")]
+position = Vector2(336, 328)
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
