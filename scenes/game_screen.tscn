@@ -23,6 +23,8 @@ offset_bottom = 1087.0
 
 [node name="Building" type="Area2D" parent="."]
 position = Vector2(572, 329)
+collision_layer = 2
+collision_mask = 2
 
 [node name="BuildingSprite" type="Sprite2D" parent="Building"]
 texture = ExtResource("2_1y61m")

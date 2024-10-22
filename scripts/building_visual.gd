@@ -17,7 +17,9 @@ func _process(delta: float) -> void:
 		player_range.color = "#00ffff52"
 
 func _on_area_entered(area: Area2D) -> void:
-	is_interfered = true
+	if area.is_in_group("allied_structures"):
+		is_interfered = true
 
 func _on_area_exited(area: Area2D) -> void:
-	is_interfered = false
+	if area.is_in_group("allied_structures"):
+		is_interfered = false

@@ -23,6 +23,7 @@ func _ready() -> void:
 	add_child(building_visual_instance)
 	building = get_node("Building")
 	Global.building = building
+	building.add_to_group("allied_structures")
 
 	mob_spawn_path_follow = get_node("MobSpawnPath/MobSpawnPathFollow")
 

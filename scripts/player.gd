@@ -1,8 +1,9 @@
-extends CharacterBody2D
+extends Area2D
 
 var player_range
 var player_sprite
 var shoot_timer
+var player_collision
 var player_range_collision
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
@@ -15,7 +16,9 @@ func _ready():
 	player_range = get_node("PlayerRange")
 	player_sprite = get_node("PlayerSprite")
 	shoot_timer = get_node("ShootTimer")
+	player_collision = get_node("PlayerCollisionShape")
 	player_range_collision = get_node("PlayerRange/PlayerRangeArea/PlayerRangeCollisionShape")
+	self.add_to_group("allied_structures")
 
 func _process(delta: float) -> void:
 	if enemy_array.is_empty():

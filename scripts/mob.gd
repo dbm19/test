@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	print("what")
 	if area.is_in_group("bullet"):
 		hit_points -= 1
 		area.queue_free()
