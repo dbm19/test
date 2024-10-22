@@ -10,12 +10,12 @@ size = Vector2(81.75, 84)
 position = Vector2(195, 149)
 script = ExtResource("1_qfm4o")
 
-[node name="MobSprite2" type="Sprite2D" parent="."]
+[node name="MobSprite" type="Sprite2D" parent="."]
 position = Vector2(-22, -22)
 scale = Vector2(0.65625, 0.65625)
 texture = ExtResource("2_au0vk")
 
-[node name="MobCollisionShape2" type="CollisionShape2D" parent="."]
+[node name="MobCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-21.875, -22)
 shape = SubResource("RectangleShape2D_v8ctw")
 
