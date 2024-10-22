@@ -6,15 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adyoa"]
 size = Vector2(128, 128)
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rcao2")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+scale = Vector2(0.656, 0.656)
+shape = SubResource("RectangleShape2D_adyoa")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.656, 0.656)
 texture = ExtResource("2_qxxj4")
-
-[node name="PlayerArea2D" type="Area2D" parent="."]
-
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerArea2D"]
-scale = Vector2(0.656, 0.656)
-shape = SubResource("RectangleShape2D_adyoa")

@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var speed = 400
 
@@ -12,11 +12,11 @@ func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("go_up"):
 		velocity.y -= 1
-	elif Input.is_action_pressed("go_down"):
+	if Input.is_action_pressed("go_down"):
 		velocity.y += 1
-	elif Input.is_action_pressed("go_left"):
+	if Input.is_action_pressed("go_left"):
 		velocity.x -= 1
-	elif Input.is_action_pressed("go_right"):
+	if Input.is_action_pressed("go_right"):
 		velocity.x += 1
 		
-	position += speed * velocity * delta
+	position += speed * velocity.normalized() * delta
