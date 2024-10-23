@@ -19,8 +19,10 @@ stream = ExtResource("3_d8s8b")
 [node name="MobDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_k053v")
 
-[node name="BuildingWorking" type="AudioStreamPlayer2D" parent="."]
+[node name="ConstructionBegin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_cpre5")
+volume_db = 10.895
 
-[node name="BuildingComplete" type="AudioStreamPlayer2D" parent="."]
+[node name="ConstructionComplete" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2xd6f")
+volume_db = 4.457

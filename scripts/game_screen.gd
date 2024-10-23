@@ -38,13 +38,14 @@ func _process(delta: float) -> void:
 		mouse_position = get_viewport().get_mouse_position()
 		building_visual_instance.position = mouse_position
 
-		if Input.is_action_just_pressed("create"):
+		if Input.is_action_just_pressed("create") && Global.ordnance_count != 0:
 			mouse_position = get_viewport().get_mouse_position()
 			tower_instance = tower_scene.instantiate()
 			tower_instance.position = mouse_position
 			if !building_visual_instance.is_interfered:
 				add_child(tower_instance)
-			
+				Global.ordnance_count -= 1
+
 	if Input.is_action_just_pressed("camera_pan_left"):
 		var tween = get_tree().create_tween()
 		if Global.current_screen == "main":

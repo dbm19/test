@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	if mouse_hovering == true:
 		if Input.is_action_just_pressed("select"):
 			progress_bar.start = true
-			Global.building_working.play()
+			Global.construction_begin.play()
 
 func _on_mouse_entered() -> void:
 	mouse_hovering = true
