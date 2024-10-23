@@ -32,8 +32,12 @@ func _ready() -> void:
 	camera = get_node("Camera")
 	Global.current_screen = "main"
 	
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	get_node("TowerCount").text = str(Global.ordnance_count)
+	
 	if Global.current_screen == "main":
 		mouse_position = get_viewport().get_mouse_position()
 		building_visual_instance.position = mouse_position
@@ -44,6 +48,7 @@ func _process(delta: float) -> void:
 			tower_instance.position = mouse_position
 			if !building_visual_instance.is_interfered:
 				add_child(tower_instance)
+				Global.tower_placement.play()
 				Global.ordnance_count -= 1
 
 	if Input.is_action_just_pressed("camera_pan_left"):

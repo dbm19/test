@@ -9,6 +9,7 @@ var mob_hit
 var mob_death
 var construction_begin
 var construction_complete
+var tower_placement
 
 var current_screen
 var ordnance_count = 0
@@ -20,6 +21,7 @@ func _ready() -> void:
 	mob_death = get_node("MobDeath")
 	construction_begin = get_node("ConstructionBegin")
 	construction_complete = get_node("ConstructionComplete")
+	tower_placement = get_node("TowerPlacement")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

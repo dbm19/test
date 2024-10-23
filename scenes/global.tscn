@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://byfyvrp6pc60f"]
+[gd_scene load_steps=8 format=3 uid="uid://byfyvrp6pc60f"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_6k04n"]
 [ext_resource type="AudioStream" uid="uid://jiw3p1q2hour" path="res://sounds/bullet_firing.wav" id="2_wena6"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cxgn8ufxnkrnj" path="res://sounds/mob_death.wav" id="4_k053v"]
 [ext_resource type="AudioStream" uid="uid://p2wt84v8pj2x" path="res://sounds/building_working.wav" id="5_cpre5"]
 [ext_resource type="AudioStream" uid="uid://bab4asinc4p6v" path="res://sounds/building_complete.wav" id="6_2xd6f"]
+[ext_resource type="AudioStream" uid="uid://c4s80xl5wnnwy" path="res://sounds/tower_placement.wav" id="7_u7h4q"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_6k04n")
@@ -25,4 +26,8 @@ volume_db = 10.895
 
 [node name="ConstructionComplete" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2xd6f")
+volume_db = 4.457
+
+[node name="TowerPlacement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_u7h4q")
 volume_db = 4.457
