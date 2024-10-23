@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://drjh5mm3ejdk0"]
+[gd_scene load_steps=11 format=3 uid="uid://drjh5mm3ejdk0"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_6gye6"]
 [ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://art/building_sprite.png" id="2_1y61m"]
 [ext_resource type="PackedScene" uid="uid://fjje58a10eia" path="res://scenes/player.tscn" id="3_j0p6g"]
+[ext_resource type="Script" path="res://scenes/structure.gd" id="4_5lvvc"]
+[ext_resource type="Script" path="res://scripts/texture_progress_bar.gd" id="4_wn3km"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya27i"]
 size = Vector2(126.5, 126.5)
@@ -14,6 +16,15 @@ _data = {
 point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h04sl"]
+size = Vector2(126, 127.5)
+
+[sub_resource type="Gradient" id="Gradient_4y00o"]
+colors = PackedColorArray(0.630296, 0.996106, 0.890991, 1, 0.631373, 0.996078, 0.890196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_skfly"]
+gradient = SubResource("Gradient_4y00o")
+width = 256
+height = 32
 
 [node name="GameScreen" type="Node2D"]
 position = Vector2(0, 3)
@@ -54,14 +65,25 @@ position = Vector2(336, 328)
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(572, 331)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Structure" type="Area2D" parent="."]
 position = Vector2(-801, 172)
+script = ExtResource("4_5lvvc")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Structure"]
 texture = ExtResource("2_1y61m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Structure"]
+position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_h04sl")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Structure"]
+offset_left = -61.0
+offset_top = 75.0
+offset_right = 195.0
+offset_bottom = 115.0
+step = 0.1
+texture_progress = SubResource("GradientTexture2D_skfly")
+script = ExtResource("4_wn3km")
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(-466, 169)
@@ -72,6 +94,15 @@ texture = ExtResource("2_1y61m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("RectangleShape2D_h04sl")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D2"]
+offset_left = -61.0
+offset_top = 75.0
+offset_right = 195.0
+offset_bottom = 115.0
+step = 0.1
+texture_progress = SubResource("GradientTexture2D_skfly")
+script = ExtResource("4_wn3km")
+
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2(-798, 450)
 
@@ -80,6 +111,15 @@ texture = ExtResource("2_1y61m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 shape = SubResource("RectangleShape2D_h04sl")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D3"]
+offset_left = -61.0
+offset_top = 75.0
+offset_right = 195.0
+offset_bottom = 115.0
+step = 0.1
+texture_progress = SubResource("GradientTexture2D_skfly")
+script = ExtResource("4_wn3km")
 
 [node name="Area2D4" type="Area2D" parent="."]
 position = Vector2(-468, 445)
@@ -90,4 +130,15 @@ texture = ExtResource("2_1y61m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
 shape = SubResource("RectangleShape2D_h04sl")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D4"]
+offset_left = -61.0
+offset_top = 75.0
+offset_right = 195.0
+offset_bottom = 115.0
+step = 0.1
+texture_progress = SubResource("GradientTexture2D_skfly")
+script = ExtResource("4_wn3km")
+
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
+[connection signal="mouse_entered" from="Structure" to="Structure" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Structure" to="Structure" method="_on_mouse_exited"]
