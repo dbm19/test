@@ -8,6 +8,8 @@ var bullet_sound
 var mob_hit
 var mob_death
 
+var current_screen
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bullet_sound = get_node("BulletSound")

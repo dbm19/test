@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		tower_range.color = "#00ffff52"
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area.get_groups())
 	if area.is_in_group("allied_structures"):
 		is_interfered = true
 

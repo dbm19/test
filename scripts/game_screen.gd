@@ -30,27 +30,43 @@ func _ready() -> void:
 	mob_spawn_path_follow = get_node("MobSpawnPath/MobSpawnPathFollow")
 
 	camera = get_node("Camera")
+	Global.current_screen = "main"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	mouse_position = get_viewport().get_mouse_position()
-	building_visual_instance.position = mouse_position
-
-	if Input.is_action_just_pressed("create"):
+	if Global.current_screen == "main":
 		mouse_position = get_viewport().get_mouse_position()
-		tower_instance = tower_scene.instantiate()
-		tower_instance.position = mouse_position
-		if !building_visual_instance.is_interfered:
-			add_child(tower_instance)
+		building_visual_instance.position = mouse_position
+
+		if Input.is_action_just_pressed("create"):
+			mouse_position = get_viewport().get_mouse_position()
+			tower_instance = tower_scene.instantiate()
+			tower_instance.position = mouse_position
+			if !building_visual_instance.is_interfered:
+				add_child(tower_instance)
 			
 	if Input.is_action_just_pressed("camera_pan_left"):
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera, "offset", Vector2(-1000, 0), 0.1)
+		if Global.current_screen == "main":
+			tween.tween_property(camera, "offset", Vector2(-1000, 0), 0.1)
+			Global.current_screen = "left"
+		elif Global.current_screen == "left":
+			pass
+		else:
+			Global.current_screen = "main"
+			tween.tween_property(camera, "offset", Vector2(0, 0), 0.1)
 	
 	if Input.is_action_just_pressed("camera_pan_right"):
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera, "offset", Vector2(0, 0), 0.1)
-
+		if Global.current_screen == "main":
+			Global.current_screen = "right"
+			tween.tween_property(camera, "offset", Vector2(1000, 0), 0.1)
+		elif Global.current_screen == "left":
+			Global.current_screen = "main"
+			tween.tween_property(camera, "offset", Vector2(0, 0), 0.1)
+		else:
+			pass
+			
 func _on_mob_spawn_timer_timeout() -> void:
 	mob_instance = mob_scene.instantiate()
 	

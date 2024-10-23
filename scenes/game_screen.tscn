@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://drjh5mm3ejdk0"]
+[gd_scene load_steps=7 format=3 uid="uid://drjh5mm3ejdk0"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_6gye6"]
 [ext_resource type="Texture2D" uid="uid://dnlerlc7jq1qm" path="res://art/building_sprite.png" id="2_1y61m"]
@@ -12,6 +12,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 4.62074, 0.724757, 0, 0, 0, 0, 1277.3, 7.24762, 0, 0, 0, 0, 1275.98, 779.12, 0, 0, 0, 0, 3.30053, 785.643, 0, 0, 0, 0, 1.32022, 0.724757)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h04sl"]
 
 [node name="GameScreen" type="Node2D"]
 position = Vector2(0, 3)
@@ -51,5 +53,41 @@ position = Vector2(336, 328)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(572, 331)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-801, 172)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_1y61m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h04sl")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-466, 169)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("2_1y61m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_h04sl")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(-798, 450)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+texture = ExtResource("2_1y61m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("RectangleShape2D_h04sl")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(-468, 445)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D4"]
+texture = ExtResource("2_1y61m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+shape = SubResource("RectangleShape2D_h04sl")
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
