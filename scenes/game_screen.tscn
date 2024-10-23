@@ -11,9 +11,9 @@ size = Vector2(126.5, 126.5)
 
 [sub_resource type="Curve2D" id="Curve2D_emjlp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4.62074, 0.724757, 0, 0, 0, 0, 1277.3, 7.24762, 0, 0, 0, 0, 1275.98, 779.12, 0, 0, 0, 0, 3.30053, 785.643, 0, 0, 0, 0, 1.32022, 0.724757)
+"points": PackedVector2Array(0, 0, 0, 0, 1434.4, 12.5571, 0, 0, 0, 0, 1431.05, 248.82, 0, 0, 0, 0, 1427.81, 766.346)
 }
-point_count = 5
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h04sl"]
 size = Vector2(126, 127.5)
@@ -36,7 +36,7 @@ offset_right = 1941.0
 offset_bottom = 1087.0
 
 [node name="Building" type="Area2D" parent="."]
-position = Vector2(572, 329)
+position = Vector2(65, 323)
 collision_layer = 3
 collision_mask = 3
 
@@ -48,13 +48,13 @@ position = Vector2(-0.25, 0.25)
 shape = SubResource("RectangleShape2D_ya27i")
 
 [node name="MobSpawnPath" type="Path2D" parent="."]
-position = Vector2(-6.82327, 5.58835)
+position = Vector2(586, 12)
 scale = Vector2(0.910359, 0.829145)
 curve = SubResource("Curve2D_emjlp")
 
 [node name="MobSpawnPathFollow" type="PathFollow2D" parent="MobSpawnPath"]
-position = Vector2(4.62074, 0.724757)
-rotation = 0.00512525
+position = Vector2(1434.4, 12.5571)
+rotation = 1.58501
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -87,7 +87,7 @@ script = ExtResource("4_wn3km")
 metadata/_edit_use_anchors_ = true
 
 [node name="Structure2" type="Area2D" parent="."]
-position = Vector2(-523, 171)
+position = Vector2(-617, 173)
 script = ExtResource("4_5lvvc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Structure2"]
@@ -107,7 +107,7 @@ texture_progress = SubResource("GradientTexture2D_skfly")
 script = ExtResource("4_wn3km")
 
 [node name="Structure3" type="Area2D" parent="."]
-position = Vector2(-797, 398)
+position = Vector2(-805, 346)
 script = ExtResource("4_5lvvc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Structure3"]
@@ -128,7 +128,7 @@ script = ExtResource("4_wn3km")
 metadata/_edit_use_anchors_ = true
 
 [node name="Structure4" type="Area2D" parent="."]
-position = Vector2(-517, 397)
+position = Vector2(-615, 342)
 script = ExtResource("4_5lvvc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Structure4"]

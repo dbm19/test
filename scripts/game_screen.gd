@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("camera_pan_left"):
 		var tween = get_tree().create_tween()
 		if Global.current_screen == "main":
-			tween.tween_property(camera, "offset", Vector2(-1000, 0), 0.1)
+			tween.tween_property(camera, "offset", Vector2(-1150, 0), 0.1)
 			Global.current_screen = "left"
 		elif Global.current_screen == "left":
 			pass
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		var tween = get_tree().create_tween()
 		if Global.current_screen == "main":
 			Global.current_screen = "right"
-			tween.tween_property(camera, "offset", Vector2(1000, 0), 0.1)
+			tween.tween_property(camera, "offset", Vector2(1150, 0), 0.1)
 		elif Global.current_screen == "left":
 			Global.current_screen = "main"
 			tween.tween_property(camera, "offset", Vector2(0, 0), 0.1)
