@@ -19,6 +19,7 @@ func _ready():
 	tower_collision = get_node("TowerCollisionShape")
 	tower_range_collision = get_node("TowerRange/TowerRangeArea/TowerRangeCollisionShape")
 	self.add_to_group("allied_structures")
+	self.add_to_group("towers")
 
 func _process(delta: float) -> void:
 	if enemy_array.is_empty():

@@ -54,7 +54,7 @@ curve = SubResource("Curve2D_emjlp")
 
 [node name="MobSpawnPathFollow" type="PathFollow2D" parent="MobSpawnPath"]
 position = Vector2(1434.4, 12.5571)
-rotation = 1.58501
+rotation = 1.58497
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 autostart = true

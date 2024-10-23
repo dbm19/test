@@ -3,6 +3,7 @@ extends Node
 var building
 var mob_spawn
 var mob_position
+var tower_position
 
 var bullet_sound
 var mob_hit
@@ -12,7 +13,7 @@ var construction_complete
 var tower_placement
 
 var current_screen
-var ordnance_count = 0
+var ordnance_count = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

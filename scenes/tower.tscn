@@ -10,8 +10,6 @@ size = Vector2(84.5, 81.5)
 radius = 243.691
 
 [node name="Tower" type="Area2D"]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_gvy6s")
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
@@ -32,6 +30,7 @@ polygon = PackedVector2Array(69.6245, -229.444, 128.172, -223.115, 202.544, -199
 
 [node name="TowerRangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)
+collision_mask = 2
 
 [node name="TowerRangeCollisionShape" type="CollisionShape2D" parent="TowerRangeArea"]
 position = Vector2(2, 2)
