@@ -43,10 +43,13 @@ func _process(delta: float) -> void:
 		if !building_visual_instance.is_interfered:
 			add_child(tower_instance)
 			
-	if Input.is_action_just_pressed("camera_pan"):
+	if Input.is_action_just_pressed("camera_pan_left"):
 		var tween = get_tree().create_tween()
-		#tween.tween_property(building, "modulate", Color.RED, 1)
 		tween.tween_property(camera, "offset", Vector2(-1000, 0), 0.1)
+	
+	if Input.is_action_just_pressed("camera_pan_right"):
+		var tween = get_tree().create_tween()
+		tween.tween_property(camera, "offset", Vector2(0, 0), 0.1)
 
 func _on_mob_spawn_timer_timeout() -> void:
 	mob_instance = mob_scene.instantiate()
