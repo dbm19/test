@@ -29,6 +29,7 @@ func _on_shoot_timer_timeout() -> void:
 	enemy_target = get_nearest_enemy()
 	Global.mob_position = enemy_target.position
 	bullet_instance = bullet_scene.instantiate()
+	bullet_instance.add_to_group("tower_bullet")
 	add_child(bullet_instance)
 
 func _on_tower_range_area_area_entered(area: Area2D) -> void:

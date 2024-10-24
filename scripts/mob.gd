@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		Global.mob_death.play()
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("bullet"):
+	if area.is_in_group("tower_bullet"):
 		hit_points -= 1
 		Global.mob_hit.play()
 		area.queue_free()
@@ -40,7 +40,6 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_mob_range_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("towers"):
 		tower_array.append(area)
-		print(tower_array)
 		shoot_timer.start()
 
 func _on_mob_range_area_area_exited(area: Area2D) -> void:
@@ -52,6 +51,7 @@ func _on_shoot_timer_timeout() -> void:
 	if tower_target:
 		Global.tower_position = tower_target.position
 	bullet_instance = bullet_scene.instantiate()
+	bullet_instance.add_to_group("mob_bullet")
 	add_child(bullet_instance)
 	
 func get_nearest_tower():

@@ -9,9 +9,13 @@ func _ready() -> void:
 	
 	Global.bullet_sound.play()
 	
-	if Global.mob_position:
-		direction = (Global.mob_position - global_position).normalized()
-	
+	if self.is_in_group("tower_bullet"):
+		if Global.mob_position:
+			direction = (Global.mob_position - global_position).normalized()
+	elif self.is_in_group("mob_bullet"):
+		if Global.tower_position:
+			direction = (Global.tower_position - global_position).normalized()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += direction * speed * delta
