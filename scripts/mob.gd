@@ -10,6 +10,8 @@ var tower_target
 var shoot_timer
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet_instance
+var resource_scene = preload("res://scenes/resource.tscn")
+var resource_instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +25,10 @@ func _process(delta: float) -> void:
 	position += direction * speed * delta
 	
 	if hit_points == 0:
+		resource_instance = resource_scene.instantiate()
+		resource_instance.position = position
+		resource_instance.add_to_group("resource")
+		get_parent().add_child(resource_instance)
 		queue_free()
 		Global.mob_death.play()
 

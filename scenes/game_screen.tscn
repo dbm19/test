@@ -57,6 +57,7 @@ position = Vector2(1434.4, 12.5571)
 rotation = 1.58497
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_j0p6g")]
@@ -153,6 +154,13 @@ offset_left = 6.0
 offset_top = 19.0
 offset_right = 46.0
 offset_bottom = 42.0
+theme_override_font_sizes/font_size = 50
+
+[node name="ResourceCount" type="Label" parent="."]
+offset_left = -870.0
+offset_top = 17.0
+offset_right = -830.0
+offset_bottom = 40.0
 theme_override_font_sizes/font_size = 50
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

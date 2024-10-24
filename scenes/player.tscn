@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adyoa"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource("1_rcao2")
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
@@ -21,4 +21,4 @@ texture = ExtResource("2_qxxj4")
 wait_time = 0.2
 one_shot = true
 
-[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

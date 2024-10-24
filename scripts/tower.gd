@@ -5,6 +5,7 @@ var tower_sprite
 var shoot_timer
 var tower_collision
 var tower_range_collision
+var tower_hit_points
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet_instance
@@ -18,10 +19,14 @@ func _ready():
 	shoot_timer = get_node("ShootTimer")
 	tower_collision = get_node("TowerCollisionShape")
 	tower_range_collision = get_node("TowerRange/TowerRangeArea/TowerRangeCollisionShape")
+	tower_hit_points = 10
 	self.add_to_group("allied_structures")
 	self.add_to_group("towers")
 
 func _process(delta: float) -> void:
+	if tower_hit_points == 0:
+		queue_free()
+	
 	if enemy_array.is_empty():
 		shoot_timer.stop()
 
@@ -51,3 +56,8 @@ func get_nearest_enemy():
 			nearest_enemy = enemy
 
 	return nearest_enemy
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("mob_bullet"):
+		tower_hit_points -= 1

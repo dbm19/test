@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var speed = 400
 var boost_timer
@@ -27,3 +27,9 @@ func _process(delta: float) -> void:
 
 func _on_boost_timer_timeout() -> void:
 	speed = 400
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("resource"):
+		Global.resource_count += 1
+		area.queue_free()
