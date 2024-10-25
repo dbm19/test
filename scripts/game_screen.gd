@@ -19,11 +19,10 @@ var building
 
 var camera
 
+var is_constructing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	building_visual_instance = building_visual_scene.instantiate()
-	add_child(building_visual_instance)
 	building = get_node("Building")
 	Global.building = building
 	building.add_to_group("allied_structures")
@@ -42,7 +41,17 @@ func _process(delta: float) -> void:
 	
 	if Global.current_screen == "main":
 		mouse_position = get_viewport().get_mouse_position()
-		building_visual_instance.position = mouse_position
+		if Input.is_action_just_pressed("build_towers") && is_constructing == false:
+			is_constructing = true
+			building_visual_instance = building_visual_scene.instantiate()
+			add_child(building_visual_instance)
+		
+		if Input.is_action_just_pressed("cancel") && is_constructing == true:
+			is_constructing = false
+			building_visual_instance.queue_free()
+			
+		if is_constructing == true:
+			building_visual_instance.position = mouse_position
 
 		if Input.is_action_just_pressed("create") && Global.ordnance_count != 0:
 			mouse_position = get_viewport().get_mouse_position()
