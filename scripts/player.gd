@@ -2,10 +2,12 @@ extends Area2D
 
 var speed = 400
 var boost_timer
+var backpack_resource_count
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	boost_timer = get_node("BoostTimer")
+	backpack_resource_count = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,5 +33,9 @@ func _on_boost_timer_timeout() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("resource"):
-		Global.resource_count += 1
+		backpack_resource_count += 1
 		area.queue_free()
+		
+	if area.is_in_group("building"):
+		Global.resource_count += backpack_resource_count
+		backpack_resource_count = 0

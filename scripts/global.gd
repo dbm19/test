@@ -14,7 +14,7 @@ var tower_placement
 var resource_count
 
 var current_screen
-var ordnance_count = 1
+var ordnance_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +24,7 @@ func _ready() -> void:
 	construction_begin = get_node("ConstructionBegin")
 	construction_complete = get_node("ConstructionComplete")
 	tower_placement = get_node("TowerPlacement")
-	resource_count = 0
+	resource_count = 5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -38,7 +38,7 @@ scale = Vector2(0.631961, 0.631961)
 shape = SubResource("CircleShape2D_i6s70")
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="TowerRangeArea" to="." method="_on_tower_range_area_area_entered"]

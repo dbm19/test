@@ -57,6 +57,7 @@ position = Vector2(1434.4, 12.5571)
 rotation = 1.58497
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_j0p6g")]
