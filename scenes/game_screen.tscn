@@ -57,7 +57,6 @@ position = Vector2(1434.4, 12.5571)
 rotation = 1.58497
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_j0p6g")]
@@ -149,18 +148,20 @@ texture_progress = SubResource("GradientTexture2D_skfly")
 script = ExtResource("4_wn3km")
 metadata/_edit_use_anchors_ = true
 
-[node name="TowerCount" type="Label" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TowerCount" type="Label" parent="HUD"]
 offset_left = 6.0
-offset_top = 19.0
+offset_top = 22.0
 offset_right = 46.0
-offset_bottom = 42.0
+offset_bottom = 91.0
 theme_override_font_sizes/font_size = 50
 
-[node name="ResourceCount" type="Label" parent="."]
-offset_left = -870.0
-offset_top = 17.0
-offset_right = -830.0
-offset_bottom = 40.0
+[node name="ResourceCount" type="Label" parent="HUD"]
+offset_left = 293.0
+offset_top = 20.0
+offset_right = 333.0
+offset_bottom = 89.0
 theme_override_font_sizes/font_size = 50
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

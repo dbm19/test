@@ -12,12 +12,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_njkym")
 
-[node name="TowerRange" type="Polygon2D" parent="."]
-position = Vector2(-33, -26)
-scale = Vector2(0.540737, 0.540737)
-color = Color(0.737255, 0, 0.329412, 0.321569)
-polygon = PackedVector2Array(69.6245, -229.444, 128.172, -223.115, 202.544, -199.379, 262.674, -158.238, 321.222, -80.7011, 352.87, 15.8238, 348.123, 113.931, 303.816, 205.709, 243.686, 278.498, 170.897, 314.893, 91.7778, 332.299, 1.5824, 327.552, -82.2835, 294.322, -129.755, 257.927, -178.808, 199.379, -208.874, 125.008, -219.95, 60.1302, -204.126, -20.5709, -172.479, -88.613, -137.667, -148.743, -79.1188, -185.138, -12.659, -221.533)
-
 [node name="TowerHologramCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0.75)
 shape = SubResource("RectangleShape2D_antdm")
@@ -25,6 +19,12 @@ shape = SubResource("RectangleShape2D_antdm")
 [node name="TowerHologramSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.656, 0.656)
 texture = ExtResource("2_ewo5g")
+
+[node name="TowerRange" type="Polygon2D" parent="."]
+position = Vector2(-61.2267, -49)
+scale = Vector2(0.940115, 0.941175)
+color = Color(0.737255, 0, 0.329412, 0.321569)
+polygon = PackedVector2Array(69.6245, -229.444, 128.172, -223.115, 202.544, -199.379, 262.674, -158.238, 321.222, -80.7011, 352.87, 15.8238, 362.963, 65.8751, 348.123, 113.931, 303.816, 205.709, 243.686, 278.498, 170.897, 314.893, 91.7778, 332.299, 1.5824, 327.552, -82.2835, 294.322, -129.755, 257.927, -178.808, 199.379, -208.874, 125.008, -219.95, 60.1302, -204.126, -20.5709, -172.479, -88.613, -137.667, -148.743, -79.1188, -185.138, -12.659, -221.533)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

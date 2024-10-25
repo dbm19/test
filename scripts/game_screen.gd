@@ -37,8 +37,8 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_node("TowerCount").text = "Towers: " + str(Global.ordnance_count)
-	get_node("ResourceCount").text = "Resource: " + str(Global.resource_count)
+	get_node("HUD/TowerCount").text = "Towers: " + str(Global.ordnance_count)
+	get_node("HUD/ResourceCount").text = "Resource: " + str(Global.resource_count)
 	
 	if Global.current_screen == "main":
 		mouse_position = get_viewport().get_mouse_position()

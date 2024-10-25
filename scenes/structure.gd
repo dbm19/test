@@ -11,9 +11,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if mouse_hovering == true:
-		if Input.is_action_just_pressed("select") && Global.resource_count >= 3:
+		if Input.is_action_just_pressed("select") && Global.resource_count >= 5:
 			progress_bar.start = true
-			Global.resource_count -= 3
+			Global.resource_count -= 5
 			Global.construction_begin.play()
 
 func _on_mouse_entered() -> void:

@@ -2,7 +2,7 @@ extends Area2D
 
 var direction
 var speed = 100
-var hit_points = 2
+var hit_points = 3
 var mob_sprite
 
 var tower_array = []
@@ -27,14 +27,15 @@ func _process(delta: float) -> void:
 	if hit_points == 0:
 		resource_instance = resource_scene.instantiate()
 		resource_instance.position = position
+		queue_free()
 		resource_instance.add_to_group("resource")
 		get_parent().add_child(resource_instance)
-		queue_free()
 		Global.mob_death.play()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("tower_bullet"):
 		hit_points -= 1
+		print(hit_points)
 		Global.mob_hit.play()
 		area.queue_free()
 		mob_sprite.texture = load("res://art/mob_sprite_damaged.png")
