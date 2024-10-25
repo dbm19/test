@@ -21,6 +21,8 @@ var camera
 
 var is_constructing = false
 
+var current_line: Line2D = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	building = get_node("Building")
@@ -33,7 +35,6 @@ func _ready() -> void:
 	Global.current_screen = "main"
 	
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	get_node("HUD/TowerCount").text = "Towers: " + str(Global.ordnance_count)
@@ -42,21 +43,23 @@ func _process(delta: float) -> void:
 	if Global.current_screen == "main":
 		mouse_position = get_viewport().get_mouse_position()
 		if Input.is_action_just_pressed("build_towers") && is_constructing == false:
-			is_constructing = true
+			is_constructing = true 
 			building_visual_instance = building_visual_scene.instantiate()
 			add_child(building_visual_instance)
 		
 		if Input.is_action_just_pressed("cancel") && is_constructing == true:
 			is_constructing = false
 			building_visual_instance.queue_free()
-			
+
 		if is_constructing == true:
 			building_visual_instance.position = mouse_position
 
-		if Input.is_action_just_pressed("create") && Global.ordnance_count != 0:
+		if Input.is_action_just_pressed("create") && Global.ordnance_count != 0 && is_constructing == true:
 			mouse_position = get_viewport().get_mouse_position()
 			tower_instance = tower_scene.instantiate()
 			tower_instance.position = mouse_position
+			is_constructing = false
+			building_visual_instance.queue_free()
 			if !building_visual_instance.is_interfered:
 				add_child(tower_instance)
 				Global.tower_placement.play()
@@ -92,3 +95,27 @@ func _on_mob_spawn_timer_timeout() -> void:
 	
 	mob_instance.position = mob_spawn_path_follow.position
 	add_child(mob_instance)
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			start_new_line(event.position)
+		else:
+			finish_line()
+	elif event is InputEventMouseMotion and current_line:
+		add_point_to_line(event.position)
+
+func start_new_line(position: Vector2):
+	current_line = Line2D.new()
+	current_line.width = 10.0
+	current_line.default_color = Color.AQUA
+	add_child(current_line)
+	
+	current_line.add_point(position)
+
+func add_point_to_line(position: Vector2):
+	current_line.add_point(position)
+
+	
+func finish_line():
+	current_line = null
